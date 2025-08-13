@@ -1,3 +1,20 @@
+h2{
+    font-size: 2.2rem;
+    /* text-decoration-underline: ; */
+    border-bottom: 2px solid #F60;
+}
+
+a{
+    color: #07c;
+    text-decoration: none;
+    /* ホバーしたとき、どのくらいで状況（文字）が変わるのかを秒数指定 */
+    transition: .4s;
+}
+
+/* マウスを上乗せしている最中のaのデザイン */
+a:hover{
+    color: #5af;
+}
 span{
     /* ボックス */
     color:orange;
@@ -9,16 +26,21 @@ img{
     height: 100%;
     /* 大きさによっては比率を崩さないようにする、初期中央値を残す*/
     object-fit:cover;
+    /* 角を丸くする */
+    border-radius: 8px;
 }
 
 header{
     /* 親要素 */
     display: flex; 
     /* flex-direction: column; */
-    /* 両端ぞろえ */
     justify-content: space-between;
-    /* 垂直の中央ぞろえ */
+    /* 両端ぞろえ */
     align-items: center;
+    /* 垂直の中央ぞろえ */
+    padding: 10px 40px;
+    /* 影をつける */
+    box-shadow: 0 2px 5px #333;
 }
 
 ul{
@@ -42,7 +64,12 @@ ul{
     padding-top: 60px;
     /* 余白計算（ぷらすされる計算）を含み計算（組み込んだ計算）にする */
     box-sizing: border-box;
+    color: #fff;
     
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .wrapper{
@@ -54,12 +81,12 @@ ul{
 
 
 p{
-    color: white;
-    text-align: center;
+    /* 行間 */
+    line-height: 1.8;
 }
 
 .main-catch{
-    font-size: 48px;
+    font-size: 28px;
     font-weight: bold;
 }
 
@@ -79,23 +106,22 @@ p{
     
     /* 中央に揃える */
     /* 性格(性質)を捻じ曲げる */
-    display: block;
+    display: inline-block;
     /* 中央揃え */
     text-align: center;
-    /* 幅を絞る */
-    width: 30%;
     /* 外側の余白 */
     /* margin-top: 20px;
     margin-left: auto;
     margin-right: auto; */
-    margin: 20px auto 0px;
+    margin-top: 20px;
 }
 
 .gallery{
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: repeat(4,1fr);
-    gap: 30px
+    gap: 30px;
+    padding-bottom: 80px;
 }
 
 .gallery img:first-child{
@@ -203,6 +229,90 @@ p{
  }
 
 
- main{
+main{
     background-color: #f9f9f9;
+ }
+
+footer{
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+}
+
+footer ul{
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+footer a{
+    color: #fff;
+    /* text-decoration: none; */
+}
+
+/* スマートフォン対応 */
+
+ @media (max-width: 768px) {
+     header {
+         flex-direction: column;
+         padding: 10px 20px;
+     }
+
+     header nav ul {
+         flex-direction: column;
+         margin-top: 10px;
+         width: 100%;
+         text-align: center;
+     }
+
+     header nav li {
+         margin: 5px 0;
+     }
+
+     .main-catch{
+        font-size: 42px;
+        line-height: 1.2;
+     }
+
+     h1 {
+         font-size: 2rem;
+     }
+
+     h2 {
+         font-size: 1.8rem;
+     }
+
+     .features {
+         grid-template-columns: 1fr;
+         /* 1列にする */
+     }
+
+     main {
+         width: 100%;
+     }
+
+     section {
+         padding: 40px 15px;
+     }
+
+     .gallery {
+         grid-template-columns: 1fr;
+         grid-template-rows: repeat(3, 300px);
+     }
+
+     .gallery img:first-child {
+         grid-column: 1/2;
+         grid-row: 1/2;
+     }
+
+     .gallery img:nth-child(2) {
+         grid-column: 1/2;
+         grid-row: 2/3;
+     }
+
+     .gallery img:last-child {
+         grid-column: 1/2;
+         grid-row: 3/4;
+     }
  }
